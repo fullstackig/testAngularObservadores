@@ -1,0 +1,48 @@
+<!--Actúa como un marcador de posición que Angular se llena dinámicamente según el estado actual del enrutador -->
+
+
+<div *ngIf="hijo" [style.background-color]="hijo.color">
+  <h1>este es el hijo seleccionado: {{hijo.name}}</h1>
+</div>
+<a routerLink="home">Home</a>
+<a routerLink="addChild">Ir a buscar el Hijo</a>
+
+<router-outlet></router-outlet>
+
+
+
+
+<h1>{{title}}</h1>
+<form>
+  <h2>Bienvenido a Angular {{aprendiz}}</h2>
+  <label>¿Cómo te llamas?</label>
+  <input [(ngModel)]="aprendiz" name="aprendiz" required>
+  <p>Soy capaz de multiplicar por {{2 * 1}} tus capacidades</p>
+  <button
+    (click)="visible ? visible = false: visible = true">{{ (visible ? 'Ocultar el texto' : 'Mostrar el texto') | uppercase}}</button>
+  <h1 *ngIf="visible">Hola mundo</h1>
+  <button (click)="mostrarInfo()">Mostrar información</button>
+  <pre>{{info | json}}</pre>
+
+  <button (click)="CargarInfoCar()">Mostrar información de carro</button>
+  <div *ngIf="infoCar">
+    <div>
+      <p>Nombre: {{infoCar.name}}</p>
+    </div>
+    <div>
+      <p>Edad: {{infoCar.age}}</p>
+    </div>
+    <div>
+      <h3>Carros</h3>
+      <div *ngFor="let car of infoCar.cars">
+        <p>nombre:{{car.name}}</p>
+
+        <li> Modelos
+          <ul *ngFor="let model of car.models">
+            {{model}}
+          </ul>
+        </li>
+      </div>
+    </div>
+  </div>
+</form>

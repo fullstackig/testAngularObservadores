@@ -1,0 +1,13 @@
+<p>add-hijo works!</p>
+<div *ngIf="ready">
+    <div></div>
+    <pre>{{ infoa | json}}</pre>
+    <pre>{{ infob | json}}</pre>
+    <pre>{{ infoc | json}}</pre>
+    <pre>{{ infod | json}}</pre>
+
+</div>
+<div *ngIf="!ready">
+    Espere por favor... Estamos cargando la configuración
+</div>
+<app-hijo></app-hijo>

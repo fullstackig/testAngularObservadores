@@ -1,0 +1,10 @@
+<p>hijo works!</p>
+<button (click)="consultarInfo()">Consultar hijos</button>
+<pre>{{lstHijos | json}}</pre>
+<select (change)="SeleccionarHijo($event.target.value)">
+    <option>Seleccione un hijo</option>
+    <option *ngFor="let hijo of lstHijos" [value]="hijo.id">
+        {{hijo.name}}
+    </option>
+</select>
+<app-nieto *ngIf="hijoSeleccionado" [hijoSeleccionado]="hijoSeleccionado"></app-nieto>
